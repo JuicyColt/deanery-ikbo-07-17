@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import "bootstrap/dist/css/bootstrap.css";
 import { Button } from "react-bootstrap";
-import { JournalTable } from './JournalTable.js';
+import {JournalTable} from "./JournalTable"
 import Request from "./Services/Request"
 import "./App.css"
 
@@ -15,14 +15,17 @@ class App extends Component {
     }
     componentDidMount() {
         Request.getStudents().then((students) => {
+            console.log(students)
             this.setState({students: students});
+
         });
     }
     render() {
+        console.log(this.state.students)
         return (
-            <div className="ReactPlayground">
+            <div className="App">
                 {this.state.students ? <JournalTable
-                    students={this.state.students[this.state.activeGroup]}/> : null}
+                    students={this.state.students}/> : null}
                 <button onClick={() => {
                     this.setState({activeGroup: 0});
                 }}>Группа 1</button>
@@ -36,5 +39,6 @@ class App extends Component {
         );
     }
 }
+
 
 export default App;

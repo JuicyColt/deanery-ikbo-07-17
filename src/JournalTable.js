@@ -19,9 +19,10 @@ export class JournalTable extends Component {
                     {this.props.students.map((student, index) => {
                         return <tr>
                             <td>{index + 1}</td>
+                            <td>{student.surname}</td>
                             <td>{student.name}</td>
-                            <td>{student.markPrIS}</td>
-                            <td>{student.markSII}</td>
+                            <td>{student.secondName}</td>
+                            <td>{student.study_group_id}</td>
                         </tr>
                     })}
                     </tbody>
